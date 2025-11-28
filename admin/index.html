@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromoCity - Painel Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="admin-body">
+    
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="admin-brand">
+        PromoCity <span style="color:#0d6efd">Admin</span>
+      </div>
+      
+      <ul class="admin-menu">
+        <li>
+          <button class="active" onclick="showSection('lojas')">
+            <i class='bx bxs-store'></i> Gerenciar Lojas
+          </button>
+        </li>
+        <li>
+          <button onclick="showSection('promos')">
+            <i class='bx bxs-discount'></i> Promoções
+          </button>
+        </li>
+        <li>
+          <button onclick="showSection('json')">
+            <i class='bx bxs-file-json'></i> Exportar JSON
+          </button>
+        </li>
+      </ul>
+      
+      <div style="margin-top: auto; text-align: center; font-size: 0.8rem; opacity: 0.5;">
+        v2.0.5 (Blindada)
+      </div>
+    </aside>
+
+    <!-- Mobile Nav (Visible only on mobile) -->
+    <nav class="admin-mobile-nav d-md-none" style="display: none;"> 
+      <!-- CSS media query handles display, but style.css uses d-md-none approach or media query -->
+      <!-- Check style.css: .admin-mobile-nav display logic is in media query max-width 768px -->
+      <button class="active" onclick="showSection('lojas')"><i class='bx bxs-store'></i></button>
+      <button onclick="showSection('promos')"><i class='bx bxs-discount'></i></button>
+      <button onclick="showSection('json')"><i class='bx bxs-file-json'></i></button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+      
+      <!-- Section: Lojas -->
+      <div id="sec-lojas">
+        <div class="admin-section-title">
+          <span>Lojas Cadastradas</span>
+          <button class="btn btn-primary" onclick="openModalLoja()">+ Nova Loja</button>
+        </div>
+
+        <div class="list-container" id="lojasList">
+          <!-- Injetado via JS -->
+          <div class="text-center p-4">Carregando...</div>
+        </div>
+      </div>
+
+      <!-- Section: Export -->
+      <div id="sec-json" class="d-none">
+        <div class="admin-section-title">Exportar Banco de Dados</div>
+        <div class="form-card">
+          <p class="mb-4">Copie o conteúdo abaixo e cole no arquivo <strong>data/database.json</strong></p>
+          <button class="btn btn-primary mb-4" onclick="copyJSON()">Copiar JSON</button>
+          <div class="json-output" id="jsonOutput">...</div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Script Admin -->
+  <script src="script.js"></script>
+</body>
+</html>

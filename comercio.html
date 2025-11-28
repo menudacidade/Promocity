@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Comércio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Nav Voltar -->
+  <nav style="position: absolute; top: 16px; left: 16px; z-index: 10;">
+    <a href="index.html" style="background: rgba(0,0,0,0.5); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+      <i class='bx bx-arrow-back' style="font-size: 1.5rem;"></i>
+    </a>
+  </nav>
+
+  <main class="container" style="padding-top: 0;">
+    
+    <div id="profileContainer">
+      <!-- Loading state -->
+      <p style="text-align: center; padding-top: 100px;">Carregando informações...</p>
+    </div>
+
+    <!-- Promoções Desta Loja -->
+    <section style="padding: 20px 16px;">
+      <h3 style="font-weight: 800; margin-bottom: 16px;">Ofertas Ativas</h3>
+      <div class="feed-grid" id="storePromosContainer">
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Nenhuma oferta ativa no momento.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Script específico inline para carregar perfil
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      if(id) loadCommerceProfile(id);
+      else window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

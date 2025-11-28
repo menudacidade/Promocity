@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia da Cidade - Ofertas e Comércios</title>
+  
+  <!-- CSS e Ícones -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+  <!-- Fonte Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="icon" type="image/png" href="assets/img/Promocityvai.png">
+  <link rel="apple-touch-icon" href="assets/img/Promocityvai.png">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container header-content">
+      <!-- Logo Texto Colorido -->
+      <div class="brand-logo">
+        <span style="color: #0d6efd;">Pro</span><span style="color: #f59e0b;">mo</span><span style="color: #198754;">Ci</span><span style="color: #dc3545;">t<span style="font-size: 1.8rem;">Y</span></span><span style="color: #0d6efd;">vai</span>
+      </div>
+      
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <!-- Botão Download APK -->
+        <a href="https://promocityvai.com.br/download/promocityvai.apk" id="btnDownloadApp" class="btn-icon" style="color: var(--primary);" title="Baixar App" download>
+          <i class='bx bxs-download'></i>
+        </a>
+
+        <button id="btnNotificacoes" class="btn-icon" style="position:relative;">
+          <i class='bx bx-bell'></i>
+          <span class="notif-badge">3</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Busca -->
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <i class='bx bx-search'></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar lojas, lanches ou serviços...">
+      </div>
+    </div>
+
+    <!-- Stories -->
+    <section class="stories-section">
+      <div class="stories-track" id="storiesContainer">
+        <!-- Injetado via JS -->
+        <div class="story-item loading-skeleton">
+          <div class="story-preview" style="background:#eee;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contador de Visitas (Fake Realista) - POSIÇÃO NOVA -->
+    <div id="liveCounter" style="text-align: center; margin-bottom: 16px; color: #198754; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px;">
+      <span style="position: relative; display: flex; height: 10px; width: 10px;">
+        <span style="position: absolute; display: inline-flex; height: 100%; width: 100%; border-radius: 50%; background-color: #198754; opacity: 0.75; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
+        <span style="position: relative; display: inline-flex; border-radius: 50%; height: 10px; width: 10px; background-color: #198754;"></span>
+      </span>
+      <span id="counterNum">...</span> pessoas vendo ofertas agora
+    </div>
+
+    <!-- Promoções do Dia (MOVIDO PARA CIMA PARA DESTAQUE) -->
+    <section>
+      <div class="section-header" style="margin-top: 10px;">
+        <div class="section-title"><i class='bx bxs-hot' style="color:#ff3d00"></i> Ofertas Quentes</div>
+        <a href="#" class="see-all">Ver todas</a>
+      </div>
+      
+      <div class="feed-grid" id="promosContainer">
+        <!-- Injetado via JS -->
+      </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categories-grid" id="categoriesContainer" style="margin-top: 24px;">
+      <!-- Injetado via JS -->
+    </section>
+
+    <!-- Lojas em Destaque -->
+    <section>
+      <div class="section-header">
+        <div class="section-title"><i class='bx bxs-store' style="color:#0d6efd"></i> Lojas Parceiras</div>
+      </div>
+      
+      <div class="feed-grid" id="storesContainer" style="grid-template-columns: 1fr;">
+        <!-- Injetado via JS -->
+      </div>
+    </section>
+
+    <!-- RODAPÉ LEGAL -->
+    <footer style="text-align: center; padding: 30px 20px; color: #64748b; font-size: 0.8rem; margin-top: 40px; border-top: 1px solid #e2e8f0; background: #fff;">
+      <p style="margin-bottom: 8px; font-size: 0.9rem;"><strong>PromoCity</strong> é uma iniciativa 100% privada.</p>
+      <p style="line-height: 1.4;">Este aplicativo não possui qualquer vínculo oficial, parceria ou ligação com a Prefeitura Municipal ou administração pública da cidade.</p>
+      <p style="margin-top: 16px; font-size: 0.75rem; opacity: 0.8;">&copy; 2025 PromoCity - Todos os direitos reservados.</p>
+    </footer>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION (IGUAL INSTAGRAM) -->
+  <nav class="bottom-nav">
+    <button class="nav-item active" onclick="navTo('home', this)">
+      <i class='bx bxs-home-alt-2'></i>
+      <span>Início</span>
+    </button>
+    <button class="nav-item" onclick="navTo('promos', this)">
+      <i class='bx bxs-hot'></i>
+      <span>Ofertas</span>
+    </button>
+    <button class="nav-item" onclick="navTo('stores', this)">
+      <i class='bx bxs-store-alt'></i>
+      <span>Lojas</span>
+    </button>
+  </nav>
+
+  <!-- Modal Notificações -->
+  <div id="notificacoesModal" class="modal-backdrop d-none">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Notificações</h3>
+        <button id="fecharNotificacoes" class="btn-icon"><i class='bx bx-x'></i></button>
+      </div>
+      <div class="notif-list">
+        <!-- Lista injetada via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY VIEWER (TELA CHEIA) -->
+  <div id="storyViewer" class="story-viewer d-none">
+    <div class="story-progress-container" id="storyBars">
+      <!-- Barrinhas geradas via JS -->
+    </div>
+    
+    <div class="story-header">
+      <div class="story-user-info">
+        <img id="storyUserImg" src="" alt="">
+        <span id="storyUserName">Nome da Loja</span>
+        <span class="story-time">Agora</span>
+      </div>
+      <button class="btn-close-story" onclick="closeStory()"><i class='bx bx-x'></i></button>
+    </div>
+
+    <div class="story-image-container">
+      <img id="storyImage" src="" alt="Story">
+      <div class="story-caption" id="storyCaption"></div>
+      
+      <!-- Botão WhatsApp do Story -->
+      <div class="story-cta-container">
+        <a href="#" id="storyWaBtn" target="_blank" class="btn-story-wa">
+          <i class='bx bxl-whatsapp'></i> Eu Quero!
+        </a>
+      </div>
+    </div>
+
+    <!-- Áreas de toque para navegar -->
+    <div class="story-nav-left" onclick="prevStory()"></div>
+    <div class="story-nav-right" onclick="nextStory()"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+</body>
+</html>

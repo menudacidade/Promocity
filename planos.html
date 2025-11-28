@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anuncie no PromoCity - Planos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Estilos específicos da página de planos */
+    .hero-planos {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 40px 20px 60px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      margin-bottom: -30px;
+    }
+    .hero-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; }
+    .hero-subtitle { opacity: 0.9; font-size: 1rem; max-width: 400px; margin: 0 auto; }
+    
+    .plan-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 24px;
+      text-align: center;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .plan-card.featured {
+      border-color: var(--warning);
+      transform: scale(1.02);
+    }
+    .plan-badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--warning);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-bottom-left-radius: 12px;
+    }
+    
+    .plan-name { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+    .plan-price { font-size: 2rem; font-weight: 800; color: var(--primary); margin: 10px 0; }
+    .plan-price small { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+    
+    .plan-features { margin: 20px 0; text-align: left; }
+    .feature-item { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+    .feature-icon { color: var(--success); font-size: 1.2rem; }
+    .feature-icon.off { color: #ccc; }
+    
+    .btn-plan {
+      width: 100%;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.2s;
+      display: block;
+    }
+    .btn-free { background: #e2e8f0; color: var(--text-main); }
+    .btn-pro { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3); }
+    .btn-premium { background: var(--gradient-brand); color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav style="padding: 16px; position: absolute; top: 0; width: 100%; z-index: 10;">
+    <a href="index.html" style="background: rgba(255,255,255,0.2); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+      <i class='bx bx-arrow-back' style="font-size: 1.5rem;"></i>
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-planos">
+    <h1 class="hero-title">Aumente suas Vendas! 🚀</h1>
+    <p class="hero-subtitle">Coloque seu comércio no aplicativo oficial da cidade e alcance milhares de clientes.</p>
+  </header>
+
+  <main class="container" style="padding-top: 0;">
+    
+    <!-- PLANO GRÁTIS -->
+    <div class="plan-card">
+      <h2 class="plan-name">Inicial</h2>
+      <div class="plan-price">Grátis</div>
+      <ul class="plan-features">
+        <li class="feature-item"><i class='bx bx-check feature-icon'></i> Presença no App</li>
+        <li class="feature-item"><i class='bx bx-check feature-icon'></i> Link para WhatsApp</li>
+        <li class="feature-item"><i class='bx bx-x feature-icon off'></i> Sem Destaque</li>
+        <li class="feature-item"><i class='bx bx-x feature-icon off'></i> Sem Stories</li>
+      </ul>
+      <a href="#" class="btn-plan btn-free">Começar Grátis</a>
+    </div>
+
+    <!-- PLANO PRO -->
+    <div class="plan-card featured">
+      <div class="plan-badge">MAIS VENDIDO</div>
+      <h2 class="plan-name">Profissional</h2>
+      <div class="plan-price">R$ 29,90<small>/mês</small></div>
+      <ul class="plan-features">
+        <li class="feature-item"><i class='bx bxs-check-circle feature-icon'></i> <strong>Destaque na Home</strong></li>
+        <li class="feature-item"><i class='bx bxs-check-circle feature-icon'></i> <strong>Stories no App</strong></li>
+        <li class="feature-item"><i class='bx bx-check feature-icon'></i> Até 3 Ofertas/mês</li>
+        <li class="feature-item"><i class='bx bx-check feature-icon'></i> Selo de Verificado</li>
+      </ul>
+      <a href="#" class="btn-plan btn-pro">Quero ser PRO</a>
+    </div>
+
+    <!-- PLANO PREMIUM -->
+    <div class="plan-card">
+      <h2 class="plan-name">Premium VIP</h2>
+      <div class="plan-price">R$ 59,90<small>/mês</small></div>
+      <ul class="plan-features">
+        <li class="feature-item"><i class='bx bxs-star feature-icon'></i> <strong>Destaque Máximo</strong></li>
+        <li class="feature-item"><i class='bx bxs-check-circle feature-icon'></i> Stories Ilimitados</li>
+        <li class="feature-item"><i class='bx bxs-check-circle feature-icon'></i> Ofertas Ilimitadas</li>
+        <li class="feature-item"><i class='bx bxs-check-circle feature-icon'></i> Banner Rotativo</li>
+      </ul>
+      <a href="#" class="btn-plan btn-premium">Quero ser Premium</a>
+    </div>
+
+    <div style="text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 0.9rem;">
+      <p>Sem fidelidade. Cancele quando quiser.</p>
+      <p style="margin-top: 8px;">Dúvidas? <a href="https://wa.me/5542999067042" style="color: var(--primary); font-weight: 600;">Fale conosco</a></p>
+    </div>
+
+  </main>
+
+</body>
+</html>

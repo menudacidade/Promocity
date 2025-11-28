@@ -1,0 +1,9 @@
+[
+  { "id": "cat_1", "nome": "Alimenxação", "slug": "alimentacao", "icone": "🍔" },
+  { "id": "cat_2", "nome": "Moda", "slug": "moda", "icone": "👗", "hot": true },
+  { "id": "cat_3", "nome": "Serviços", "slug": "servicos", "icone": "🛠️" },
+  { "id": "cat_4", "nome": "Lazer", "slug": "lazer", "icone": "🎉", "hot": true },
+  { "id": "cat_5", "nome": "Saúde", "slug": "saude", "icone": "💊" },
+  { "id": "cat_7", "nome": "cosméticos", "slug": "cosméticos", "icone": "💊" },
+  { "id": "cat_6", "nome": "Tecnologia", "slug": "tecnologia", "icone": "📱" }
+]
